@@ -17,7 +17,7 @@ Before building or running the SDK, you can read the documentation linked here t
 To build the examples inside this repository:
 
 ```bash
-./build_release.sh
+./build.sh
 ```
 
 ### Notice

@@ -8,8 +8,6 @@
 #include <eigen3/Eigen/Dense>
 #include <map>
 #include <string>
-#include <thread>
-#include <vector>
 namespace legged {
 using scalar_t = double;
 using vector_t = Eigen::Matrix<scalar_t, Eigen::Dynamic, 1>;
@@ -25,6 +23,8 @@ using tensor_element_t = float;
 template <typename T> using feet_array_t = std::array<T, 4>;
 using contact_flag_t = feet_array_t<bool>;
 
+#define SDK_VERSION "2.0.0"
+
 enum class ControlMode : uint8_t { LOWMODE, HIGHMODE, USERMODE, DEFAULT };
 enum class ControlCmd : uint8_t {
         WALK,
@@ -38,8 +38,8 @@ enum class ControlCmd : uint8_t {
         SAVETEACH,
         ENDTEACH,
         PLAYTEACH,
+	TAIJI,
         DEFAULT
-
 };
 struct ControlCfg {
         std::map<std::string, float> stiffness;

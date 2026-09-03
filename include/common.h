@@ -24,7 +24,7 @@ using tensor_element_t = float;
 template <typename T> using feet_array_t = std::array<T, 4>;
 using contact_flag_t = feet_array_t<bool>;
 
-#define SDK_VERSION "3.0.0"
+#define SDK_VERSION "3.1.0"
 
 enum class ControlMode : uint8_t { LOWMODE, HIGHMODE, USERMODE, DEFAULT };
 enum class ControlCmd : uint8_t {

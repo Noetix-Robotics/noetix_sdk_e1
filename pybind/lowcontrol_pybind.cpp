@@ -106,6 +106,16 @@ PYBIND11_MODULE(lowcontrol_py, m) {
                 },
                 py::arg("motorcmd"))
 
+            .def(
+                "publish_hand_data",
+                [](LowController &self, py::bytes data) {
+                        std::string buffer = data;
+                        std::vector<uint8_t> vec(buffer.begin(), buffer.end());
+
+                        self.publish_hand_data(vec);
+                },
+                py::arg("data"))
+
             .def("subscribe_robot_hardware_status",
                  [](LowController &self, py::function callback) {
                          self.subscribe_robot_hardware_status(

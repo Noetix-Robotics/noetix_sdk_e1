@@ -101,6 +101,16 @@ PYBIND11_MODULE(highcontrol_py, m) {
             .def("publish_cmd", &HighController::publish_cmd, py::arg("ver"),
                  py::arg("hor"), py::arg("action"), py::arg("index") = 0)
 
+            .def(
+                "publish_hand_data",
+                [](HighController &self, py::bytes data) {
+                        std::string buffer = data;
+                        std::vector<uint8_t> vec(buffer.begin(), buffer.end());
+
+                        self.publish_hand_data(vec);
+                },
+                py::arg("data"))
+
             .def("subscribe_robot_hardware_status",
                  [](HighController &self, py::function callback) {
                          self.subscribe_robot_hardware_status(

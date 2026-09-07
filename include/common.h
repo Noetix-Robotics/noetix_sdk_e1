@@ -41,8 +41,7 @@ enum class ControlCmd : uint8_t {
         PLAYTEACH,
         TAIJI,
         DANCE,
-        CFDANCE,
-        DEFAULT
+        DEFAULT = 14
 };
 struct ControlCfg {
         std::map<std::string, float> stiffness;
